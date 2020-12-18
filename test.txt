@@ -1,0 +1,2 @@
+new
+riinsert 100000

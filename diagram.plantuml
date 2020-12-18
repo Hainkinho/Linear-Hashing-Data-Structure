@@ -1,0 +1,108 @@
+@startuml
+' scale 1.4
+
+class ADS_set {
+    TableRow* tableRows = nullptr;
+    size_type numberOfRows = 0;
+    size_type numberOfValues = 0;
+    size_type nextToSplit = 0;
+    size_type round = 0;
+
+    -size_type pow(size_type base, size_type exponent) const
+
+    -size_type getMinRowSize() const
+    -size_type getMaxRowSize() const
+    -size_type lastIndexToSplit() const
+
+    -size_type h(const key_type& key) const
+    -size_type g(const key_type& key) const
+    -size_type getTableRowIndex(const key_type& key) const
+
+    -void insertWith(const key_type& key)
+    -void handleOverflow()
+    -void rehash(const key_type& key)
+    -void extendTable()
+
+    - vector<key_type> getValuesAt(const key_type& key) const
+    - vector<vector<key_type>> getValuesAtIndex(const size_type& rowIndex) const
+
+    +ADS_set()
+    +ADS_set(std::initializer_list<key_type> ilist) : ADS_set()
+    +template<typename InputIt> \nADS_set(InputIt first, InputIt last) : ADS_set()
+    + ~ADS_set()
+
+    +size_type size() const
+    +bool empty() const
+
+    + void insert(std::initializer_list<key_type> ilist)
+    +template<typename InputIt> \nvoid insert(InputIt first, InputIt last)
+
+    +size_type erase(const key_type& key)
+    +size_type count(const key_type& key) const
+
+    +void dump(std::ostream& o = std::cerr) const
+}
+
+class TableRow {
+    size_type numberOfValues = 0;
+    LinkedList* firstBucket = nullptr;
+    LinkedList* lastBucket = nullptr;
+
+    - LinkedList* getBucketBevor(LinkedList* bucket) const
+    - void reOrganize(LinkedList* startBucket)
+
+    +TableRow()
+    +TableRow(const TableRow& rhs) : TableRow()
+    +TableRow& operator=(const TableRow& rhs)
+    + ~TableRow()
+
+    + bool add(const key_type& key)
+    + bool find(const key_type& key) const
+
+    + bool erase(const key_type& key)
+    + vector<key_type> clear()
+
+    +LinkedList* getFirstBucket()
+    +LinkedList* getLastBucket()
+    +void setFirstBucket(LinkedList* newBucket)
+    +void setLastBucket(LinkedList* newBucket)
+
+    +size_type getNumberOfValues() const
+    +vector<vector<key_type>> getValues() const
+}
+
+class LinkedList {
+    size_type sz = 0;
+    key_type values[N];
+    LinkedList* nextBucket = nullptr;
+
+    -bool isEqual(const key_type& a, const key_type& b) const
+    -void remove(const size_type& indexToRemove)
+
+    +LinkedList() {}
+    + ~LinkedList()
+
+    + void add(const key_type& key)
+    + void erase(const key_type& key)
+    + key_type pop()
+
+    +bool find(const key_type& key) const
+    +key_type getKey(size_type index) const
+
+    +bool empty() const
+    +size_type size() const
+
+    +vector<key_type> getValues() const
+
+    +void setNextBucket(LinkedList* nextBucket)
+    +LinkedList* getNextBucket() const
+}
+
+ADS_set <-- TableRow
+TableRow <-- LinkedList
+
+@enduml
+
+
+
+
