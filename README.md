@@ -10,13 +10,14 @@ reset&& g++ -Wall -Wextra -O3 -std=c++17 -pedantic-errors main.cpp && valgrind .
 
 ### simpleTest.cpp:
 (-DSIZE=... gibt die Bucket Size an!)
-* unsigned:
+
+- ***unsigned:*** <br>
 reset && g++ -Wall -Wextra -O3 --std=c++17 --pedantic-errors -DPH2 -DETYPE=unsigned -DSIZE=5 simpletest.cpp -o simpletest && ./simpleTest
 
-* string:
+- ***string:*** <br>
 reset && g++ -Wall -Wextra -O3 --std=c++17 --pedantic-errors -DPH2 -DETYPE=std::string -DSIZE=5 simpletest.cpp -o simpletest && ./simpleTest
 
-* Person:
+- ***Person:*** <br>
 reset && g++ -Wall -Wextra -O3 --std=c++17 --pedantic-errors -DPH2 -DETYPE=Person -DSIZE=5 simpletest.cpp -o simpletest && ./simpleTest
 
 reset && g++ -Wall -Wextra -O3 --std=c++17 --pedantic-errors -DPH2 -DETYPE=unsigned -DSIZE=5 simpletest.cpp -o simpletest && ./simpleTest < test.txt
