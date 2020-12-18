@@ -1,4 +1,4 @@
-This was a second semester university project. We have to choose a data strcuture. I choosed the linked list data structure, because I want to challenge myselve. In the beginning the project was really hard. My problem was, that I started coding although I did't understand the data structure very good. After I figured out how to draw it by hand, the development was very straight forward. 
+This was a second semester university project. We have to choose a data structure. I chose the linked list data structure, because I want to challenge myselve. In the beginning the project was really hard. My problem was, that I started coding although I did't understand the data structure very good. After I figured out how to draw it by hand, the development was very straight forward. 
 
 
 # Terminal Commands
