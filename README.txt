@@ -1,4 +1,5 @@
 
+#Terminal Commands
 main.cpp:
 reset&& g++ -Wall -Wextra -O3 -std=c++17 -pedantic-errors main.cpp && ./a.out
 
